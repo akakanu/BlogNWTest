@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="border: 1px solid silver;margin: 0 auto;width:400px;">
+    <div style="text-align:center; border: 1px solid silver;">
+        Blog - Edit Post
+    </div>
+    <h5>Edit Post</h5>
+    @using (Html.BeginForm("Index", "Posts", FormMethod.Post))
+    {
+        <div class="form-group">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <label for="Name">Title</label><br />
+                    <label for="Name">Category</label><br />
+                    <label for="Name">Pub Date</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("Title", "[current value]", new { style = "color:red" })<br />
+                    @*@Html.DropDownList("SelectCategory", new SelectList(Enum.GetValues(typeof(TeaType))), "--Select--")
+                        <input type="submit" value="submit" />*@<br />
+                    @Html.TextBox("Date", "[current value]", new { style = "color:red" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <b>Content </b>
+                    <div>
+                        @Html.TextArea("Content", "[current value] ", new
+                                            {
+                                                          cols = "50",
+                                                          rows = "5",
+                                                          @style = "color:red"
+                                            })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="submit" value="save" />
+        </div>
+
+        @ViewBag.message
+
+    }
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>

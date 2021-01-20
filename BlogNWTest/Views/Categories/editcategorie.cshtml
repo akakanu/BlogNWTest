@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="border: 1px solid silver;margin: 0 auto;width:400px;">
+    <div style="text-align:center; border: 1px solid silver;">
+        Category - Edit Category
+    </div>
+    <h5>Edit Category</h5>
+    @using (Html.BeginForm("Index", "Categories", FormMethod.Post))
+    {
+        <div class="form-group">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <label for="Name">Title</label>
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("Title", "[current value]", new { style = "color:red" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="save" />
+        </div>
+
+        @ViewBag.message
+
+    }
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>
