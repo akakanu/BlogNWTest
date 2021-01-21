@@ -1,4 +1,6 @@
-﻿@{
+﻿ @model BlogNWTest.Models.Blog
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,32 +10,62 @@
             Blog
         </div>
         <div>
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
-            {
-                <div class="form-group">
-                    <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <label for="Name">Categories</label>
-                        </div>
-                        <div class="col-md-3">
-                            <input type="submit" value="Add" />
-                        </div>
+            @*@using (Html.BeginForm("AddCategorie", "Home", FormMethod.Post))
+        {
+            <div class="form-group">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <label for="Name">Categories</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="submit" value="Add" class="btn btn-primary" />
+                        <a asp-action="AddCategorie"><input type="submit" class="btn btn-primary" value="Add" /></a>
                     </div>
                 </div>
+            </div>
 
-                @ViewBag.message
-            }
+
+            @ViewBag.message
+
+
+        }*@
+            <div class="form-group">
+                <div class="row align-items-center">
+                    <div class="col-md-3">
+                        <label for="Name">Categories</label>
+                    </div>
+                    <div class="col-md-3">
+                        @*<input type="submit" value="Add" class="btn btn-primary" />*@
+                        <a asp-action="Opencat"><input type="submit" class="btn btn-primary" value="Add" /></a>
+                    </div>
+                </div>
+            </div>
+            @ViewBag.message
+
+
         </div>
         <div>
             <div class="form-group">
                 <div class="row align-items-center">
+                    <tr>
+                        <td>
+                            <table align="center">
 
+                                @foreach (var cat in @Model.categories)
+                                {
+                                    <tr><td>@cat.Title</td><td><a asp-action="EditCategorie" asp-route-id="@cat.CategorieId">Edit</a></td></tr>
+                                    
+                                }
+
+                            </table>
+                        </td>
+                    </tr>
                 </div>
             </div>
 
         </div>
         <div>
-            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+            @using (Html.BeginForm("OpenPost", "Home", FormMethod.Post))
             {
                 <div class="form-group">
                     <div class="row align-items-center">
@@ -41,7 +73,7 @@
                             <label for="Name">Posts</label>
                         </div>
                         <div class="col-md-3">
-                            <input type="submit" value="Add" />
+                            <input type="submit" value="Add"  class="btn btn-primary" />
                         </div>
                     </div>
                 </div>
@@ -52,12 +84,23 @@
         <div>
             <div class="form-group">
                 <div class="row align-items-center">
+                    <tr>
+                        <td>
+                            <table align="center">
 
+                                @foreach (var post in @Model.posts)
+                                {
+                                    <tr><td>@post.Title</td><td><a asp-action="EditPost" asp-route-id="@post.PostId">Edit</a></td></tr>
+                                }
+
+                            </table>
+                        </td>
+                    </tr>
                 </div>
             </div>
 
         </div>
     </div>
     @*<h3 class="display-4"></h3>*@
-    
+
 </div>

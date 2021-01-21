@@ -5,12 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Views\Categories\editcategorie.cshtml" />
-    <None Include="Views\Categories\savecategorie.cshtml" />
+    <Compile Remove="Views\Categories\**" />
+    <Compile Remove="Views\Posts\**" />
+    <Content Remove="Views\Categories\**" />
+    <Content Remove="Views\Posts\**" />
+    <EmbeddedResource Remove="Views\Categories\**" />
+    <EmbeddedResource Remove="Views\Posts\**" />
+    <None Remove="Views\Categories\**" />
+    <None Remove="Views\Posts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Home\Index.cshtml" />
     <None Include="Views\Home\Privacy.cshtml" />
-    <None Include="Views\Posts\editpost.cshtml" />
-    <None Include="Views\Posts\savepost.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

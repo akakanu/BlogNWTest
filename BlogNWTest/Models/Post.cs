@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -16,10 +17,11 @@ namespace BlogNWTest.Models
         public DateTime PulicationDate { get; set; }
         [ForeignKey]
         public virtual Categorie Categorie { get; set; }
+        [NotMapped]
+        public List<Categorie> categories { get; set; }
+
+
+
     }
 
-    public enum TeaType
-    {
-        Tea, Coffee, GreenTea, BlackTea
-    }
 }

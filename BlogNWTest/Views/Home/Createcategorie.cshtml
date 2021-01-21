@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Categorie";
 }
 
 <div style="border: 1px solid silver;margin: 0 auto;width:400px;">
@@ -7,7 +7,7 @@
         Category - Add Category
     </div>
     <h5>Add Category</h5>
-    @using (Html.BeginForm("Index", "Categories", FormMethod.Post))
+    @using (Html.BeginForm("AddCategorie", "Home", FormMethod.Post))
     {
         <div class="form-group">
             <div class="row align-items-center">
@@ -20,13 +20,13 @@
             </div>
         </div>
         <div>
-            <input type="submit" value="save" />
+            <input type="submit" value="save" class="btn btn-primary" />
         </div>
-
-        @ViewBag.message
 
     }
 
+
+    @ViewBag.message
     <div>
         <a asp-action="Index">Back to List</a>
     </div>
