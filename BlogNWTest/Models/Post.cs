@@ -11,6 +11,7 @@ namespace BlogNWTest.Models
         [Key]
         public int PostId { get; set; }
         //[Column("varchar(100)")]
+        [Required]
         public string Title { get; set; }
         //[Column("nvarchar(250)")]
         public string Content { get; set; }
